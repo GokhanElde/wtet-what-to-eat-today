@@ -1,0 +1,24 @@
+@import url("./vendor/normalize.css");
+@import url("./vendor/fonts/fonts.css");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  background-color: #faf8f2;
+  color: #000;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}

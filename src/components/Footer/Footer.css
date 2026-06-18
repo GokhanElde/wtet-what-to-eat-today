@@ -1,0 +1,45 @@
+.footer {
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: border-box;
+  background-color: #faf8f2;
+}
+
+.footer__author,
+.footer__year {
+  margin: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #285f51;
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer__author {
+    min-width: 0;
+    max-width: calc(100% - 64px);
+    overflow-wrap: anywhere;
+    line-height: 20px;
+  }
+
+  .footer__year {
+    margin-left: auto;
+    flex-shrink: 0;
+    line-height: 20px;
+  }
+}

@@ -1,21 +1,25 @@
 ﻿# WTET - What To Eat Today
 
-WTET is a responsive React application that helps users discover foods, view nutrition information, save favorites, and generate random food challenges.
+WTET is a responsive React app that helps users search for foods, view nutrition details, and save favorite foods.
 
-## Features
+## Current Features
 
-- Search foods and meals
-- View calories and macronutrients
-- Display food images
-- Save favorite foods
-- Generate random Food Challenges
-- Responsive design
+- Search foods by name or ingredient
+- Fetch nutrition data from USDA FoodData Central
+- Fetch food images from Pexels
+- Display food result cards
+- Open a modal with calories, protein, carbs, and fat
+- Save and remove favorite foods
+- View saved foods on a separate page
+- Persist saved foods with localStorage
+- Show loading, error, and empty-result states
+- Show more results in groups of three
+- Responsive layout for desktop, tablet, and mobile screens
 
 ## APIs
 
-- USDA FoodData Central for nutrition data
-- TheMealDB for meals and recipes
-- Pexels for food images
+- USDA FoodData Central: nutrition and macro data
+- Pexels: food images
 
 ## Setup
 
@@ -25,14 +29,14 @@ WTET is a responsive React application that helps users discover foods, view nut
 npm install
 ```
 
-2. Create `.env.local`:
+2. Create a `.env.local` file in the project root:
 
 ```env
-VITE_PEXELS_API_KEY=your_pexels_api_key
 VITE_USDA_API_KEY=your_usda_api_key
+VITE_PEXELS_API_KEY=your_pexels_api_key
 ```
 
-3. Start the project:
+3. Start the development server:
 
 ```bash
 npm run dev
@@ -54,6 +58,13 @@ npm run preview
 - Vite
 - JavaScript
 - CSS
+
+## Future Improvements
+
+- Add a Food Challenge feature for random meal ideas
+- Add recipe-based food search with TheMealDB
+- Show ingredients and recipe instructions in the food modal
+- Add backend storage for saved foods
 
 ## Author
 
