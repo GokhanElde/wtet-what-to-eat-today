@@ -1,4 +1,4 @@
-.main {
+﻿.main {
   max-width: 1360px;
   margin: 0 auto;
   color: #285f51;
@@ -40,6 +40,11 @@
   font-size: 16px;
 }
 
+.food-search__input:focus-visible {
+  border-color: #285f51;
+  outline: 3px solid rgba(40, 95, 81, 0.2);
+}
+
 .food-search__button {
   padding: 16px 24px;
   border: none;
@@ -50,6 +55,12 @@
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
   font-size: 16px;
+}
+
+.food-search__button:focus-visible,
+.food-search__show-more:focus-visible {
+  outline: 3px solid rgba(40, 95, 81, 0.25);
+  outline-offset: 3px;
 }
 
 .food-section__header {
@@ -79,28 +90,6 @@
   padding: 28px 0;
 }
 
-
-@media screen and (max-width: 1100px) {
-  .main {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 32px;
-    box-sizing: border-box;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .main {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 16px;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-
-}
-
-
 .food-search__error {
   margin: 20px 0 0;
   color: #b23a2b;
@@ -119,8 +108,23 @@
   font-weight: 700;
 }
 
+@media screen and (max-width: 1100px) {
+  .main {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 32px;
+    box-sizing: border-box;
+  }
+}
 
 @media screen and (max-width: 600px) {
+  .main {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
   .food-search__form {
     flex-direction: column;
   }
@@ -128,5 +132,4 @@
   .food-search__button {
     width: 100%;
   }
-
 }

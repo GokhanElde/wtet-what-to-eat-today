@@ -94,6 +94,7 @@ const Main = ({ onCardClick, onCardLike }) => {
             value={searchQuery}
             onChange={handleSearchChange}
             aria-label="Search foods"
+            required
           />
           <button className="food-search__button" type="submit">
             Search
@@ -149,4 +150,7 @@ const Main = ({ onCardClick, onCardLike }) => {
 };
 
 export default Main;
+
+
+
 

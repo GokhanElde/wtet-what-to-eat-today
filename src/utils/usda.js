@@ -1,5 +1,5 @@
-﻿const BASE_URL = "https://api.nal.usda.gov/fdc/v1";
-const apiKey = import.meta.env.VITE_USDA_API_KEY || "DEMO_KEY";
+﻿const USDA_BASE_URL = "https://api.nal.usda.gov/fdc/v1";
+const USDA_API_KEY = import.meta.env.VITE_USDA_API_KEY || "DEMO_KEY";
 
 function getNutrient(food, names) {
   const nutrient = food.foodNutrients?.find((item) =>
@@ -30,7 +30,7 @@ function mapFood(food) {
 
 export async function searchUsdaFoods(foodName, pageSize = 10) {
   const response = await fetch(
-    `${BASE_URL}/foods/search?api_key=${encodeURIComponent(apiKey)}&query=${encodeURIComponent(foodName)}&pageSize=${pageSize}`,
+    `${USDA_BASE_URL}/foods/search?api_key=${encodeURIComponent(USDA_API_KEY)}&query=${encodeURIComponent(foodName)}&pageSize=${pageSize}`,
   );
 
   if (!response.ok) {
