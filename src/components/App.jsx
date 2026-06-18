@@ -1,5 +1,5 @@
-﻿import { useEffect, useState } from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route, NavLink, Navigate } from "react-router-dom";
 
 import Header from "./Header/Header.jsx";
 import Main from "./Main/Main.jsx";
@@ -109,6 +109,7 @@ function App() {
                   />
                 }
               />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
         </div>
@@ -126,4 +127,3 @@ function App() {
 }
 
 export default App;
-
