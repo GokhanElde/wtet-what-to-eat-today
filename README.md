@@ -1,45 +1,42 @@
-# WTET - What To Eat Today
+﻿# WTET - What To Eat Today
 
-WTET is a responsive React app that helps users search for foods, view nutrition details, and save favorite foods.
+WTET is a React app that helps users search for foods, view basic nutrition information, and save favorite foods.
 
-## Current Features
+## Features
 
-- Search foods by name or ingredient
-- Fetch nutrition data from USDA FoodData Central
-- Fetch food images from Pexels
-- Display food result cards
-- Open a modal with calories, protein, carbs, and fat
-- Save and remove favorite foods
+- Search for foods
+- View calories, protein, carbs, and fat
+- See food images
+- Save favorite foods
 - View saved foods on a separate page
-- Persist saved foods with localStorage
-- Show loading, error, and empty-result states
+- Show loading, error, and empty-result messages
 - Show more results in groups of three
-- Responsive layout for desktop, tablet, and mobile screens
 
 ## APIs
 
-- USDA FoodData Central: nutrition and macro data
-- Pexels: food images
+- USDA FoodData Central
+- Pexels
 
-## Deployment
+## Live Demo
 
 [Live site](https://gokhanelde.github.io/wtet-what-to-eat-today/)
+
 ## Setup
 
-1. Install dependencies:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Create a `.env.local` file in the project root:
+Create a `.env.local` file:
 
 ```env
 VITE_USDA_API_KEY=your_usda_api_key
 VITE_PEXELS_API_KEY=your_pexels_api_key
 ```
 
-3. Start the development server:
+Start the project:
 
 ```bash
 npm run dev
@@ -57,18 +54,17 @@ npm run preview
 ## Technologies
 
 - React
-- React Router
 - Vite
+- React Router
 - JavaScript
 - CSS
 
-## Future Improvements
+## Future Plans
 
-- Add a Food Challenge feature for random meal ideas
-- Add recipe-based food search with TheMealDB
-- Show ingredients and recipe instructions in the food modal
-- Add backend storage for saved foods
+- Add Food Challenge
+- Add recipes with TheMealDB
+- Improve saved foods experience
 
 ## Author
 
-Developed by Gokhan Eldeleklioglu
+Gokhan Eldeleklioglu
