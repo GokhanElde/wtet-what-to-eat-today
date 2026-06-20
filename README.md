@@ -21,6 +21,10 @@ WTET is a React app that helps users search for foods, view basic nutrition info
 
 [Live site](https://gokhanelde.github.io/wtet-what-to-eat-today/)
 
+## Project Pitch Video
+
+Check out [this video](https://drive.google.com/file/d/1PIE2T84ofdRgY6A_Xt9mUqWsFqNxCm5p/view?usp=drive_link), where I describe my project and some challenges I faced while building it.
+
 ## Setup
 
 Install dependencies:
@@ -68,3 +72,5 @@ npm run preview
 ## Author
 
 Gokhan Eldeleklioglu
+
+
