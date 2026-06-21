@@ -1,4 +1,4 @@
-﻿# WTET - What To Eat Today
+# WTET - What To Eat Today
 
 WTET is a React app that helps users search for foods, view basic nutrition information, and save favorite foods.
 
@@ -7,6 +7,8 @@ WTET is a React app that helps users search for foods, view basic nutrition info
 - Search for foods
 - View calories, protein, carbs, and fat
 - See food images
+- Register and log in
+- Access Saved Foods through a protected route
 - Save favorite foods
 - View saved foods on a separate page
 - Show loading, error, and empty-result messages
@@ -72,5 +74,3 @@ npm run preview
 ## Author
 
 Gokhan Eldeleklioglu
-
-

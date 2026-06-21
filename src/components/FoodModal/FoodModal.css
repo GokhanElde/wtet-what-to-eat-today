@@ -1,4 +1,4 @@
-﻿.modal_type_preview {
+.modal_type_preview {
   background: rgba(0, 0, 0, 0.4);
   color: #000;
 }
@@ -76,13 +76,13 @@
   width: 14px;
   height: 14px;
   display: block;
-  opacity: 0.45;
+  opacity: 1;
   filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.9));
   transition: opacity 0.2s ease;
 }
 
 .modal_type_preview .modal__close:hover img {
-  opacity: 1;
+  opacity: 0.4;
 }
 
 .modal__footer {
@@ -178,4 +178,3 @@
   outline: 3px solid rgba(40, 95, 81, 0.25);
   outline-offset: 3px;
 }
-

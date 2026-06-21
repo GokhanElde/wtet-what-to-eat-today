@@ -1,0 +1,143 @@
+.modal_type_login,
+.modal_type_register {
+  padding: 16px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal__content_type_form {
+  width: min(496px, 100%);
+  padding: 28px;
+  border-radius: 16px;
+  background-color: #fff;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.modal__close_type_form {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal__close_type_form img {
+  width: 14px;
+  height: 14px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.modal__close_type_form:hover img {
+  opacity: 0.4;
+}
+.modal__form-title {
+  margin: 0 0 24px;
+  color: #285f51;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal__label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #285f51;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal__input {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid rgba(40, 95, 81, 0.35);
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  color: #285f51;
+  background-color: #fff;
+  font: inherit;
+}
+
+.modal__input:focus-visible {
+  border-color: #285f51;
+  outline: 3px solid rgba(40, 95, 81, 0.18);
+}
+
+.modal__input_invalid,
+.modal__input_invalid:focus-visible {
+  border-color: #b23a2b;
+  outline-color: rgba(178, 58, 43, 0.18);
+}
+
+.modal__input-error {
+  color: #b23a2b;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.modal__form-error {
+  margin: 0;
+  color: #b23a2b;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.modal__buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.modal__submit {
+  min-height: 40px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #285f51;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal__submit:disabled {
+  background-color: rgba(40, 95, 81, 0.35);
+  cursor: not-allowed;
+}
+
+.modal__secondary-button {
+  border: none;
+  padding: 8px 0;
+  background: transparent;
+  color: #285f51;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal__submit:focus-visible,
+.modal__secondary-button:focus-visible,
+.modal__close_type_form:focus-visible {
+  outline: 3px solid rgba(40, 95, 81, 0.25);
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 600px) {
+  .modal__content_type_form {
+    padding: 24px 20px;
+  }
+}

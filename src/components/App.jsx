@@ -6,65 +6,116 @@ import Main from "./Main/Main.jsx";
 import Footer from "./Footer/Footer.jsx";
 import FoodModal from "./FoodModal/FoodModal.jsx";
 import FoodSection from "./FoodSection/FoodSection.jsx";
-import CurrentUserContext from "../contexts/CurrentUserContext";
+import LoginModal from "./LoginModal/LoginModal.jsx";
+import RegisterModal from "./RegisterModal/RegisterModal.jsx";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.jsx";
+import CurrentUserContext from "../contexts/CurrentUserContext.js";
+import * as auth from "../utils/auth.js";
 
 import "../App.css";
 
-const FAVORITES_STORAGE_KEY = "wtet-favorite-foods";
+const getFavoritesStorageKey = (userId) => `wtet-favorite-foods:${userId}`;
 
-const mockUser = {
-  _id: "wtet-user",
-};
+function readFavoriteFoods(userId) {
+  if (!userId) return [];
+
+  try {
+    return (
+      JSON.parse(localStorage.getItem(getFavoritesStorageKey(userId))) || []
+    );
+  } catch (error) {
+    console.error("Failed to load saved foods:", error);
+    return [];
+  }
+}
 
 function App() {
-  const [favoriteFoods, setFavoriteFoods] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY)) || [];
-    } catch (error) {
-      console.error("Failed to load saved foods:", error);
-      return [];
-    }
-  });
+  const [currentUser, setCurrentUser] = useState(() => auth.getCurrentUser());
+  const [favoriteFoods, setFavoriteFoods] = useState(() =>
+    readFavoriteFoods(auth.getCurrentUser()?._id),
+  );
   const [activeModal, setActiveModal] = useState(null);
   const [selectedCard, setSelectedCard] = useState(null);
+  const isLoggedIn = Boolean(currentUser);
 
   useEffect(() => {
-    localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favoriteFoods));
-  }, [favoriteFoods]);
+    if (!currentUser) return;
+
+    localStorage.setItem(
+      getFavoritesStorageKey(currentUser._id),
+      JSON.stringify(favoriteFoods),
+    );
+  }, [currentUser, favoriteFoods]);
 
   const closeAllModals = () => {
     setActiveModal(null);
     setSelectedCard(null);
   };
 
+  const handleOpenLoginModal = () => setActiveModal("login");
+  const handleOpenRegisterModal = () => setActiveModal("register");
+
   const handleCardClick = (card) => {
     setSelectedCard(card);
     setActiveModal("preview");
   };
 
+  const handleLogin = (credentials) =>
+    auth.login(credentials).then((user) => {
+      setCurrentUser(user);
+      setFavoriteFoods(readFavoriteFoods(user._id));
+      closeAllModals();
+    });
+
+  const handleRegister = (userData) =>
+    auth.register(userData).then((user) => {
+      setCurrentUser(user);
+      setFavoriteFoods(readFavoriteFoods(user._id));
+      closeAllModals();
+    });
+
+  const handleLogout = () => {
+    auth.logout();
+    setCurrentUser(null);
+    setFavoriteFoods([]);
+    closeAllModals();
+  };
+
   const handleCardLike = ({ item, isLiked }) => {
+    if (!currentUser) {
+      handleOpenLoginModal();
+      return false;
+    }
+
     const id = item._id;
 
     if (isLiked) {
       setFavoriteFoods((foods) => foods.filter((food) => food._id !== id));
-      return;
+      return true;
     }
 
     const updatedFood = {
       ...item,
-      likes: [...(item.likes || []), mockUser._id],
+      likes: [...(item.likes || []), currentUser._id],
     };
 
     setFavoriteFoods((foods) => [
       updatedFood,
       ...foods.filter((food) => food._id !== id),
     ]);
+    return true;
   };
 
   return (
-    <CurrentUserContext.Provider value={mockUser}>
+    <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <Header />
+        <Header
+          currentUser={currentUser}
+          isLoggedIn={isLoggedIn}
+          onLogin={handleOpenLoginModal}
+          onRegister={handleOpenRegisterModal}
+          onLogout={handleLogout}
+        />
 
         <div className="page-layout">
           <aside className="sidebar-nav">
@@ -77,14 +128,16 @@ function App() {
               >
                 Home
               </NavLink>
-              <NavLink
-                to="/saved-foods"
-                className={({ isActive }) =>
-                  isActive ? "sidebar-nav__link active" : "sidebar-nav__link"
-                }
-              >
-                Saved Foods
-              </NavLink>
+              {isLoggedIn && (
+                <NavLink
+                  to="/saved-foods"
+                  className={({ isActive }) =>
+                    isActive ? "sidebar-nav__link active" : "sidebar-nav__link"
+                  }
+                >
+                  Saved Foods
+                </NavLink>
+              )}
             </nav>
           </aside>
 
@@ -102,11 +155,13 @@ function App() {
               <Route
                 path="/saved-foods"
                 element={
-                  <FoodSection
-                    foodItems={favoriteFoods}
-                    onCardClick={handleCardClick}
-                    onCardLike={handleCardLike}
-                  />
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                    <FoodSection
+                      foodItems={favoriteFoods}
+                      onCardClick={handleCardClick}
+                      onCardLike={handleCardLike}
+                    />
+                  </ProtectedRoute>
                 }
               />
               <Route path="*" element={<Navigate to="/" replace />} />
@@ -120,6 +175,18 @@ function App() {
           card={selectedCard}
           isOpen={activeModal === "preview"}
           onClose={closeAllModals}
+        />
+        <LoginModal
+          isOpen={activeModal === "login"}
+          onClose={closeAllModals}
+          onLogin={handleLogin}
+          onSwitchToRegister={handleOpenRegisterModal}
+        />
+        <RegisterModal
+          isOpen={activeModal === "register"}
+          onClose={closeAllModals}
+          onRegister={handleRegister}
+          onSwitchToLogin={handleOpenLoginModal}
         />
       </div>
     </CurrentUserContext.Provider>
