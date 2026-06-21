@@ -8,8 +8,9 @@ WTET is a React app that helps users search for foods, view basic nutrition info
 - View calories, protein, carbs, and fat
 - See food images
 - Register and log in
+- Validate registration and login forms
 - Access Saved Foods through a protected route
-- Save favorite foods
+- Save favorite foods for each user with localStorage
 - View saved foods on a separate page
 - Show loading, error, and empty-result messages
 - Show more results in groups of three
