@@ -109,6 +109,34 @@
   color: #285f51;
 }
 
+.modal__recipe {
+  padding: 4px 24px 0;
+  color: #285f51;
+}
+
+.modal__recipe-meta {
+  margin: 0 0 8px;
+  color: #f05907;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.modal__recipe-text {
+  max-height: 120px;
+  overflow-y: auto;
+  margin: 0;
+  color: rgba(40, 95, 81, 0.85);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.modal__recipe-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #285f51;
+  font-weight: 800;
+}
+
 .modal__nutrients {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -163,9 +191,15 @@
     line-height: 22px;
   }
 
-  .modal__image-credit {
+  .modal__image-credit,
+  .modal__recipe {
     margin-left: 20px;
     margin-right: 20px;
+  }
+
+  .modal__recipe {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .modal__nutrients {

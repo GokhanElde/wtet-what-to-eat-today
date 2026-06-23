@@ -64,6 +64,17 @@
   transform: translateY(-1px);
 }
 
+.sidebar-nav__link_type_challenge {
+  color: #f05907;
+  background-color: rgba(240, 89, 7, 0.12);
+}
+
+.sidebar-nav__link_type_challenge:hover,
+.sidebar-nav__link_type_challenge.active {
+  background-color: #f05907;
+  color: #ffffff;
+}
+
 .content {
   flex-grow: 1;
 }

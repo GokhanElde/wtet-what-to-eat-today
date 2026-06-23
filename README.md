@@ -12,6 +12,8 @@ WTET is a React app that helps users search for foods, view basic nutrition info
 - Access Saved Foods through a protected route
 - Save favorite foods for each user with localStorage
 - View saved foods on a separate page
+- Generate Food Challenge ideas
+- View recipe ideas from TheMealDB
 - Show loading, error, and empty-result messages
 - Show more results in groups of three
 
@@ -19,6 +21,7 @@ WTET is a React app that helps users search for foods, view basic nutrition info
 
 - USDA FoodData Central
 - Pexels
+- TheMealDB
 
 ## Live Demo
 
@@ -68,9 +71,9 @@ npm run preview
 
 ## Future Plans
 
-- Add Food Challenge
-- Add recipes with TheMealDB
 - Improve saved foods experience
+- Add more challenge levels
+- Add recipe filters
 
 ## Author
 

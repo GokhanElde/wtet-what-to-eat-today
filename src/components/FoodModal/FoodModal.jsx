@@ -60,6 +60,25 @@ const FoodModal = ({ card, isOpen, onClose }) => {
             </p>
           )}
 
+          {card.instructions && (
+            <div className="modal__recipe">
+              <p className="modal__recipe-meta">
+                {[card.category, card.area].filter(Boolean).join(" / ")}
+              </p>
+              <p className="modal__recipe-text">{card.instructions}</p>
+              {card.recipeUrl && (
+                <a
+                  className="modal__recipe-link"
+                  href={card.recipeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open recipe source
+                </a>
+              )}
+            </div>
+          )}
+
           <div className="modal__nutrients">
             <div className="nutrient">
               <span className="nutrient__label">Calories</span>

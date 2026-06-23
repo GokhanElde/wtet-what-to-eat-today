@@ -63,6 +63,17 @@
   transform: translateY(-1px);
 }
 
+.header__nav-link_type_challenge {
+  color: #f05907;
+  background-color: rgba(240, 89, 7, 0.12);
+}
+
+.header__nav-link_type_challenge:hover,
+.header__nav-link_type_challenge.active {
+  background-color: #f05907;
+  color: #fff;
+}
+
 .header__auth {
   grid-column: 3;
   grid-row: 1;

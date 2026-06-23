@@ -6,6 +6,7 @@ import Main from "./Main/Main.jsx";
 import Footer from "./Footer/Footer.jsx";
 import FoodModal from "./FoodModal/FoodModal.jsx";
 import FoodSection from "./FoodSection/FoodSection.jsx";
+import FoodChallenge from "./FoodChallenge/FoodChallenge.jsx";
 import LoginModal from "./LoginModal/LoginModal.jsx";
 import RegisterModal from "./RegisterModal/RegisterModal.jsx";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.jsx";
@@ -138,6 +139,16 @@ function App() {
                   Saved Foods
                 </NavLink>
               )}
+              <NavLink
+                to="/food-challenge"
+                className={({ isActive }) =>
+                  isActive
+                    ? "sidebar-nav__link sidebar-nav__link_type_challenge active"
+                    : "sidebar-nav__link sidebar-nav__link_type_challenge"
+                }
+              >
+                Food Challenge
+              </NavLink>
             </nav>
           </aside>
 
@@ -162,6 +173,15 @@ function App() {
                       onCardLike={handleCardLike}
                     />
                   </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/food-challenge"
+                element={
+                  <FoodChallenge
+                    onCardClick={handleCardClick}
+                    onCardLike={handleCardLike}
+                  />
                 }
               />
               <Route path="*" element={<Navigate to="/" replace />} />

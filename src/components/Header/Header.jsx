@@ -21,6 +21,16 @@ const Header = ({ currentUser, isLoggedIn, onLogin, onRegister, onLogout }) => {
             Saved Foods
           </NavLink>
         )}
+        <NavLink
+          to="/food-challenge"
+          className={({ isActive }) =>
+            isActive
+              ? "header__nav-link header__nav-link_type_challenge active"
+              : "header__nav-link header__nav-link_type_challenge"
+          }
+        >
+          Food Challenge
+        </NavLink>
       </nav>
 
       <div className="header__auth">
