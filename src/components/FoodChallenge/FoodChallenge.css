@@ -1,0 +1,130 @@
+.food-challenge {
+  max-width: 1360px;
+  margin: 0 auto;
+  color: #285f51;
+}
+
+.food-challenge__intro {
+  max-width: 720px;
+}
+
+.food-challenge__eyebrow {
+  margin: 0 0 10px;
+  color: #f05907;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.food-challenge__title {
+  margin: 0 0 12px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 42px;
+  line-height: 1.08;
+}
+
+.food-challenge__subtitle,
+.food-challenge__status {
+  margin: 0;
+  color: rgba(40, 95, 81, 0.76);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.food-challenge__controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.food-challenge__level {
+  min-height: 120px;
+  padding: 18px;
+  border: 1px solid rgba(40, 95, 81, 0.18);
+  border-radius: 16px;
+  background-color: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.food-challenge__level:hover,
+.food-challenge__level_active {
+  border-color: #f05907;
+  box-shadow: 0 10px 24px rgba(240, 89, 7, 0.14);
+  transform: translateY(-1px);
+}
+
+.food-challenge__radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.food-challenge__level-title,
+.food-challenge__level-text {
+  display: block;
+}
+
+.food-challenge__level-title {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.food-challenge__level-text {
+  margin-top: 8px;
+  color: rgba(40, 95, 81, 0.72);
+  line-height: 1.4;
+}
+
+.food-challenge__button {
+  margin-top: 24px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 14px;
+  background-color: #f05907;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.food-challenge__button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.food-challenge__status {
+  margin-top: 18px;
+}
+
+.food-challenge__cards {
+  margin-top: 28px;
+}
+
+@media screen and (max-width: 1100px) {
+  .food-challenge {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 32px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .food-challenge {
+    padding: 0 16px;
+  }
+
+  .food-challenge__title {
+    font-size: 32px;
+  }
+
+  .food-challenge__controls {
+    grid-template-columns: 1fr;
+  }
+}

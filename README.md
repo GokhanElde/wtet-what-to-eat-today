@@ -1,38 +1,52 @@
-﻿# WTET - What To Eat Today
+# WTET - What To Eat Today
 
-WTET is a responsive React application that helps users discover foods, view nutrition information, save favorites, and generate random food challenges.
+WTET is a React app that helps users search for foods, view basic nutrition information, and save favorite foods.
 
 ## Features
 
-- Search foods and meals
-- View calories and macronutrients
-- Display food images
-- Save favorite foods
-- Generate random Food Challenges
-- Responsive design
+- Search for foods
+- View calories, protein, carbs, and fat
+- See food images
+- Register and log in
+- Validate registration and login forms
+- Access Saved Foods through a protected route
+- Save favorite foods for each user with localStorage
+- View saved foods on a separate page
+- Generate Food Challenge ideas
+- View recipe ideas from TheMealDB
+- Show loading, error, and empty-result messages
+- Show more results in groups of three
 
 ## APIs
 
-- USDA FoodData Central for nutrition data
-- TheMealDB for meals and recipes
-- Pexels for food images
+- USDA FoodData Central
+- Pexels
+- TheMealDB
+
+## Live Demo
+
+[Live site](https://gokhanelde.github.io/wtet-what-to-eat-today/)
+
+## Project Pitch Video
+
+Check out [this video](https://drive.google.com/file/d/1PIE2T84ofdRgY6A_Xt9mUqWsFqNxCm5p/view?usp=drive_link), where I describe my project and some challenges I faced while building it.
 
 ## Setup
 
-1. Install dependencies:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Create `.env.local`:
+Create a `.env.local` file:
 
 ```env
-VITE_PEXELS_API_KEY=your_pexels_api_key
 VITE_USDA_API_KEY=your_usda_api_key
+VITE_PEXELS_API_KEY=your_pexels_api_key
 ```
 
-3. Start the project:
+Start the project:
 
 ```bash
 npm run dev
@@ -50,11 +64,17 @@ npm run preview
 ## Technologies
 
 - React
-- React Router
 - Vite
+- React Router
 - JavaScript
 - CSS
 
+## Future Plans
+
+- Improve saved foods experience
+- Add more challenge levels
+- Add recipe filters
+
 ## Author
 
-Developed by Gokhan Eldeleklioglu
+Gokhan Eldeleklioglu
